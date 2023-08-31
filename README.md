@@ -42,6 +42,7 @@ Enter the reason for overnight leave : [reason]
    Windows 의 경우 실행이 안되면, chromedriver 삭제 후 재실행 해보기
 
 
+# 권한이 없어 프로그램 실행이 안될 경우
 **4. Security settings**
 
   Mac 인 경우에만 해당함.
