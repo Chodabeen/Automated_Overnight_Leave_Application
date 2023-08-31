@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     # Install and Generate Chrome driver
     chromedriver_path = os.getcwd() + "/chromedriver"
-    driver = webdriver.Chrome(chromedriver_path)
+    driver = webdriver.Chrome()
     driver.implicitly_wait(3)
 
     # Open hisnet site
