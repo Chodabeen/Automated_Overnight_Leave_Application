@@ -38,8 +38,8 @@ Enter a hisnet password: [hisnetpw]
 Enter the location for overnight leave : [location]
 Enter the reason for overnight leave : [reason]
 
-Windows 의 경우 실행이 안되면, chromedriver 삭제 후 재실행 해보기
 ```
+   Windows 의 경우 실행이 안되면, chromedriver 삭제 후 재실행 해보기
 
 
 **4. Security settings**
