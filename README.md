@@ -1,5 +1,8 @@
 # Automated_Overnight_Leave_Application
 
+Mac 의 경우, chrome 116 version 만 가능합니다
+
+
 ## How to run
 **1. Git clone**
    
