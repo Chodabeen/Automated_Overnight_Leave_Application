@@ -1,3 +1,9 @@
+'''
+Reference By :
+Jinil Kim. 2022. Automated-Lecture-Assessment.
+https://github.com/Global-Handong-Oriented-Security-Team/Automated-Lecture-Assessment. (2023).
+'''
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -5,14 +11,20 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 import time
 from datetime import datetime
+import os
+import getpass
 
 
 if __name__ == '__main__':
     hisnet_id = input("Enter a hisnet id: ")
-    hisnet_pw = input("Enter a hisnet password: ")
+    hisnet_pw = getpass.getpass("Enter a hisnet password: ")
+
+    location = input("Enter the location for overnight leave : ")
+    reason_text = input("Enter the reason for overnight leave : ")
 
     # Install and Generate Chrome driver
-    driver = webdriver.Chrome('/Users/sdbeen/Dropbox/Mac/Desktop/Automatic_Overnight_Leave_Request/chromedriver')
+    chromedriver_path = os.getcwd() + "/chromedriver"
+    driver = webdriver.Chrome(chromedriver_path)
     driver.implicitly_wait(3)
 
     # Open hisnet site
@@ -32,7 +44,7 @@ if __name__ == '__main__':
     driver.implicitly_wait(3)
 
     # Open RCpage
-    driver.find_element(By.XPATH, "//div[contains(text(), '생활관/RC')]").click()
+    driver.find_element(By.XPATH, "//div[contains(text(), '/RC')]").click()
     driver.implicitly_wait(3)
 
     # Switch to the new window
@@ -54,7 +66,7 @@ if __name__ == '__main__':
     year = now.year
     month = now.month
     formated_month = f"{now.month:02d}"
-    day = now.day 
+    day = now.day
 
     # Set end_day_of_month
     import calendar
@@ -63,8 +75,6 @@ if __name__ == '__main__':
     
     while day <= end_day_of_month :
         formated_time =  f'{year}-{formated_month}-{day}'
-        print("day", day)
-        print("end", end_day_of_month)
 
         # Remove "readonly" attribute from the date input
         driver.execute_script("document.getElementById('ovng_begin_dttm').removeAttribute('readonly');")
@@ -77,7 +87,7 @@ if __name__ == '__main__':
         # Write reason
         reason = driver.find_element(By.NAME, 'ovng_resn')
         reason.clear()
-        text = "오석관 \n과제제출"
+        text = location + "\n" + reason_text
         reason.send_keys(text)
 
         day = day + 1
@@ -91,7 +101,7 @@ if __name__ == '__main__':
         # driver.implicitly_wait(2)  # Need to adjust the wait time based on page loading speed
         time.sleep(1)
         
-        # Switch to the alert and accept it 
+        # Switch to the alert and accept it
         alert = driver.switch_to.alert
         alert.accept()
         
@@ -114,6 +124,7 @@ if __name__ == '__main__':
 
     
     
+
 
 
 
