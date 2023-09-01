@@ -15,6 +15,7 @@ import os
 import getpass
 
 
+
 if __name__ == '__main__':
     hisnet_id = input("Enter a hisnet id: ")
     hisnet_pw = getpass.getpass("Enter a hisnet password: ")
@@ -23,8 +24,9 @@ if __name__ == '__main__':
     reason_text = input("Enter the reason for overnight leave : ")
 
     # Install and Generate Chrome driver
+    # chrome_options = webdriver.ChromeOptions()
     chromedriver_path = os.getcwd() + "/chromedriver"
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(chromedriver_path)
     driver.implicitly_wait(3)
 
     # Open hisnet site
@@ -92,11 +94,10 @@ if __name__ == '__main__':
 
         day = day + 1
 
-        time.sleep(3)
+        driver.implicitly_wait(3)
 
         # Click apply button
-        driver.find_element(By.XPATH, "//button[@class='btn bg_purple'][text()='신청하기(Apply)']").click()
-
+        driver.find_element(By.XPATH, "//button[@class='btn bg_purple'][contains(text(), '(Apply)')]").click()
         # Wait for the confirmation message box to appear
         # driver.implicitly_wait(2)  # Need to adjust the wait time based on page loading speed
         time.sleep(1)
