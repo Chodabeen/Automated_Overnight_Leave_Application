@@ -1,10 +1,12 @@
 # Automated_Overnight_Leave_Application
 
 ## !! Must Read !!
-- Mac 의 경우, 자신의 chrome과 매칭되는 chromedriver를 다음 링크에서 다운 받고 실행시켜야 합니다. 기존에 존재하는 chromedriver를 다운 받은 chromedriver로 대체하면 됩니다.
+- 오늘부터 현재 달 마지막 날까지 외박신청이 됩니다.
+  
+- Mac 의 경우, 자신의 chrome과 매칭되는 버전의 chromedriver를 다음 링크에서 다운 받고 실행시켜야 합니다. 기존에 존재하는 chromedriver를 다운 받은 chromedriver로 대체하면 됩니다.
    https://googlechromelabs.github.io/chrome-for-testing/
   
-- 오늘을 기준으로부터 이번 달 까지 아무것도 외박신청이 되어있지 않은 상태이어야 합니다.
+- 오늘부터 현재 달 마지막날까지 사이에 아무 외박신청이 되어있지 않은 상태이어야 합니다.
 
 
 
@@ -29,6 +31,7 @@ pip install selenium
 for Mac : 
 ```
 python main_mac.py
+Enter a student number: [student number]
 Enter a hisnet id: [hisnetid]
 Enter a hisnet password: [hisnetpw]
 Enter the location for overnight leave : [location]
@@ -38,6 +41,7 @@ Enter the reason for overnight leave : [reason]
 for Windows :
 ```
 python main_windows.py
+Enter a student number: [student number]
 Enter a hisnet id: [hisnetid]
 Enter a hisnet password: [hisnetpw]
 Enter the location for overnight leave : [location]
