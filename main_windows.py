@@ -100,6 +100,7 @@ if __name__ == '__main__':
         
         stayout_button = driver.find_element(By.XPATH, "//a[@class='btn b_Blu right_p1 wd80' and contains(text(), '외박신청')]")
         stayout_button.click()
+        stayout_button.click()
         
         # Click on dates for 6 times
         for i in range(6):

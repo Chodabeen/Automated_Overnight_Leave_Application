@@ -103,6 +103,7 @@ if __name__ == '__main__':
         
         stayout_button = driver.find_element(By.XPATH, "//a[@class='btn b_Blu right_p1 wd80' and contains(text(), '외박신청')]")
         stayout_button.click()
+        stayout_button.click()
         
         # Click on dates for 6 times
         for i in range(6):
@@ -123,7 +124,7 @@ if __name__ == '__main__':
         sl_content_element = driver.find_element(By.ID, 'sl_content')
         # Input location and reason_text into sl_content
         sl_content_element.send_keys(f"장소: {location}, 사유: {reason_text}")
-        time.sleep(2)
+
         
         # Click apply button
         apply_button = driver.find_element(By.XPATH, "//a[@class='btn b_Blu center_p1 wd110' and contains(text(), '(Apply)')]")
@@ -150,6 +151,7 @@ if __name__ == '__main__':
             clickSpecificDate(driver, formated_time)
             time.sleep(1);
             day = day + 1
+            exit(1)
         
         # Click reason list
         dropdown_id = "sleepsayou"  # 예제 목록 id, 실제 목록 id로 수정해야 합니다.
